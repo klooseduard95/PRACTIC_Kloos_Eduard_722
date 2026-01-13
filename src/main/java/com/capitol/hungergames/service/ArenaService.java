@@ -9,6 +9,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ArenaService {
-
+    public List<Tribute> filterTributesByDistrictAndStatus(List<Tribute> tributes, int district, Status status) {
+        return tributes.stream()
+                .filter(t -> t.getDistrict() == district && t.getStatus() == status)
+                .collect(Collectors.toList());
+    }
 
 }

@@ -30,6 +30,7 @@ public class ConsoleUI {
     public void run() {
         loadData();
         executeTask1();
+        executeTask2();
         scanner.close();
     }
 
@@ -46,5 +47,19 @@ public class ConsoleUI {
         System.out.println("Gifts loaded: " + gifts.size());
         tributes.forEach(System.out::println);
         System.out.println("-------------------------------------\n");
+    }
+
+    private void executeTask2() {
+        System.out.println("--- Task 2: Filter by District and Status ---");
+        System.out.print("Input district: ");
+        try {
+            int district = scanner.nextInt();
+            List<Tribute> filteredTributes = service.filterTributesByDistrictAndStatus(tributes, district, Status.ALIVE);
+            filteredTributes.forEach(System.out::println);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter an integer.");
+            scanner.next();
+        }
+        System.out.println("-------------------------------------------\n");
     }
 }
