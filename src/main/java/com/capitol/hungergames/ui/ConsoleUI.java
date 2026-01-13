@@ -34,6 +34,7 @@ public class ConsoleUI {
         executeTask3();
         executeTask4();
         executeTask5();
+        executeTask6();
         scanner.close();
     }
 
@@ -90,5 +91,16 @@ public class ConsoleUI {
                             event.getId(), event.getPoints(), computedPoints);
                 });
         System.out.println("---------------------------------\n");
+    }
+
+    private void executeTask6() {
+        System.out.println("--- Task 6: Ranking ---");
+        System.out.println("Top 5 Tributes:");
+        List<Map.Entry<Tribute, Long>> topTributes = service.getTopTributes(tributes, events, gifts, 5);
+        int rank = 1;
+        for (Map.Entry<Tribute, Long> entry : topTributes) {
+            System.out.printf("%d. %s -> %d%n", rank++, entry.getKey().getName(), entry.getValue());
+        }
+        System.out.println("-----------------------\n");
     }
 }

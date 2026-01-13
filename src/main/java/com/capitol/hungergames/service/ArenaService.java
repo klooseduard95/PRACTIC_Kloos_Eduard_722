@@ -34,4 +34,30 @@ public class ArenaService {
         };
     }
 
+    public long calculateTotalScoreForTribute(Tribute tribute, List<Event> allEvents, List<SponsorGift> allGifts) {
+        long eventsScore = allEvents.stream()
+                .filter(event -> event.getTributeId() == tribute.getId())
+                .mapToLong(this::calculateComputedPoints)
+                .sum();
+
+        long giftsScore = allGifts.stream()
+                .filter(gift -> gift.getTributeId() == tribute.getId())
+                .mapToLong(SponsorGift::getValue)
+                .sum();
+
+        return eventsScore + giftsScore;
+    }
+
+    public List<Map.Entry<Tribute, Long>> getTopTributes(List<Tribute> tributes, List<Event> events, List<SponsorGift> gifts, int limit) {
+        return tributes.stream()
+                .map(tribute -> {
+                    long totalScore = calculateTotalScoreForTribute(tribute, events, gifts);
+                    return new AbstractMap.SimpleEntry<>(tribute, totalScore);
+                })
+                .sorted(Map.Entry.<Tribute, Long>comparingByValue().reversed()
+                        .thenComparing(entry -> entry.getKey().getName()))
+                .limit(limit)
+                .collect(Collectors.toList());
+    }
+
 }
