@@ -1,0 +1,15 @@
+11 | Finnick Odair | D4 | ALIVE | skill=9
+1 | Katniss Everdeen | D12 | ALIVE | skill=9
+13 | Brutus | D2 | DEAD | skill=8
+9 | Cato | D2 | ALIVE | skill=8
+2 | Johanna Mason | D7 | ALIVE | skill=8
+5 | Thresh | D11 | ALIVE | skill=8
+15 | Beetee | D3 | ALIVE | skill=7
+3 | Foxface | D5 | DEAD | skill=7
+8 | Marvel | D1 | DEAD | skill=7
+10 | Peeta Mellark | D12 | ALIVE | skill=7
+12 | Annie Cresta | D4 | ALIVE | skill=6
+4 | Clove | D2 | DEAD | skill=6
+7 | Glimmer | D1 | DEAD | skill=6
+14 | Wiress | D3 | DEAD | skill=6
+6 | Rue | D11 | DEAD | skill=5

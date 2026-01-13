@@ -32,6 +32,7 @@ public class ConsoleUI {
         executeTask1();
         executeTask2();
         executeTask3();
+        executeTask4();
         scanner.close();
     }
 
@@ -69,5 +70,12 @@ public class ConsoleUI {
         List<Tribute> sortedTributes = service.sortTributesBySkillAndName(tributes);
         sortedTributes.forEach(System.out::println);
         System.out.println("-----------------------------\n");
+    }
+
+    private void executeTask4() {
+        System.out.println("--- Task 4: Write Sorted Tributes to File ---");
+        List<Tribute> sortedTributes = service.sortTributesBySkillAndName(tributes);
+        repository.writeTributesToFile(sortedTributes, "tributes_sorted.txt");
+        System.out.println("---------------------------------------------\n");
     }
 }

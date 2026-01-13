@@ -48,4 +48,13 @@ public class ArenaRepository {
         }
     }
 
+    public void writeTributesToFile(List<Tribute> tributes, String filename) {
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(Paths.get(filename)))) {
+            tributes.forEach(writer::println);
+            System.out.println("Successfully wrote sorted tributes to " + filename);
+        } catch (IOException e) {
+            System.err.println("Error writing to file " + filename + ": " + e.getMessage());
+        }
+    }
+
 }
