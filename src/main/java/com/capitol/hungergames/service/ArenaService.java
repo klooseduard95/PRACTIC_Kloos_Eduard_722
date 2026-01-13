@@ -15,4 +15,11 @@ public class ArenaService {
                 .collect(Collectors.toList());
     }
 
+    public List<Tribute> sortTributesBySkillAndName(List<Tribute> tributes) {
+        return tributes.stream()
+                .sorted(Comparator.comparing(Tribute::getSkillLevel).reversed()
+                        .thenComparing(Tribute::getName))
+                .collect(Collectors.toList());
+    }
+
 }

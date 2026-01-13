@@ -31,6 +31,7 @@ public class ConsoleUI {
         loadData();
         executeTask1();
         executeTask2();
+        executeTask3();
         scanner.close();
     }
 
@@ -61,5 +62,12 @@ public class ConsoleUI {
             scanner.next();
         }
         System.out.println("-------------------------------------------\n");
+    }
+
+    private void executeTask3() {
+        System.out.println("--- Task 3: Sort Tributes ---");
+        List<Tribute> sortedTributes = service.sortTributesBySkillAndName(tributes);
+        sortedTributes.forEach(System.out::println);
+        System.out.println("-----------------------------\n");
     }
 }
