@@ -22,4 +22,16 @@ public class ArenaService {
                 .collect(Collectors.toList());
     }
 
+    public int calculateComputedPoints(Event event) {
+        int points = event.getPoints();
+        int day = event.getDay();
+        return switch (event.getType()) {
+            case FOUND_SUPPLIES -> points + 2 * day;
+            case INJURED -> points - day;
+            case ATTACK -> points * 2 + day;
+            case HELPED_ALLY -> points + 5;
+            case SPONSORED -> points + 10;
+        };
+    }
+
 }

@@ -33,6 +33,7 @@ public class ConsoleUI {
         executeTask2();
         executeTask3();
         executeTask4();
+        executeTask5();
         scanner.close();
     }
 
@@ -77,5 +78,17 @@ public class ConsoleUI {
         List<Tribute> sortedTributes = service.sortTributesBySkillAndName(tributes);
         repository.writeTributesToFile(sortedTributes, "tributes_sorted.txt");
         System.out.println("---------------------------------------------\n");
+    }
+
+    private void executeTask5() {
+        System.out.println("--- Task 5: Point Calculation ---");
+        events.stream()
+                .limit(5)
+                .forEach(event -> {
+                    int computedPoints = service.calculateComputedPoints(event);
+                    System.out.printf("Event %d -> rawPoints=%d -> computedPoints=%d%n",
+                            event.getId(), event.getPoints(), computedPoints);
+                });
+        System.out.println("---------------------------------\n");
     }
 }
