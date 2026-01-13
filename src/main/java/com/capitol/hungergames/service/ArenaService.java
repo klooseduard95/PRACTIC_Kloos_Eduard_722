@@ -60,4 +60,9 @@ public class ArenaService {
                 .collect(Collectors.toList());
     }
 
+    public Map<String, Long> generateEventReport(List<Event> events) {
+        return events.stream()
+                .collect(Collectors.groupingBy(event -> event.getType().name(), Collectors.counting()));
+    }
+
 }

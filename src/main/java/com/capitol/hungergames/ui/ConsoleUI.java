@@ -35,6 +35,7 @@ public class ConsoleUI {
         executeTask4();
         executeTask5();
         executeTask6();
+        executeTask7();
         scanner.close();
     }
 
@@ -102,5 +103,12 @@ public class ConsoleUI {
             System.out.printf("%d. %s -> %d%n", rank++, entry.getKey().getName(), entry.getValue());
         }
         System.out.println("-----------------------\n");
+    }
+
+    private void executeTask7() {
+        System.out.println("--- Task 7: Final Report ---");
+        Map<String, Long> reportData = service.generateEventReport(events);
+        repository.writeReportToFile(reportData, "arena_report.txt");
+        System.out.println("----------------------------\n");
     }
 }
